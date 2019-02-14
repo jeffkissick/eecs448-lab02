@@ -125,6 +125,40 @@ bool LinkedList<T>::removeBack()
 		Fix this method
 	*/
 
+	//an empty list can't remove anything
+	if(isEmpty())
+	{
+
+		return isRemoved;
+
+	}
+
+	lastNode = m_front;
+
+	secondintoLast = m_front;
+
+	while(lastNode->getNext() != nullptr)
+	{
+		lastNode = lastNode->getNext();
+
+	}
+
+	while(secondintoLast->getNext() != lastNode)
+	{
+
+		secondintoLast = secondintoLast->getNext();
+
+	}
+
+	delete lastNode;
+
+	m_size--;
+
+	secondintoLast->setNext(nullptr);
+	
+	isRemoved = true;
+
+
 	return(isRemoved);
 }
 
